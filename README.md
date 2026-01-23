@@ -17,7 +17,7 @@ This project demonstrates how LLMs can be integrated into backend services to co
 ## Project Structure
 
 ```text
-TOPIC14/
+Gemini_Based_Automated_Report_Generation_System/
 │── .venv/
 │── data/
 │   └── dataset.json
