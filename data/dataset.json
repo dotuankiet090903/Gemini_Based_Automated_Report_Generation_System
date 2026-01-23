@@ -1,0 +1,43 @@
+{
+  "report_date": "2025-11-27",
+  "total_transactions": 58,
+  "successful_transactions": 52,
+  "failed_transactions": 6,
+  "total_amount_vnd": 1245000000,
+  "transactions": [
+    {
+      "transaction_id": "TXN-001",
+      "student_id": "STU1001",
+      "student_name": "Nguyen Van A",
+      "amount_vnd": 25000000,
+      "status": "success",
+      "timestamp": "2025-11-27T08:15:12"
+    },
+    {
+      "transaction_id": "TXN-002",
+      "student_id": "STU1002",
+      "student_name": "Tran Thi B",
+      "amount_vnd": 32000000,
+      "status": "failed",
+      "failure_reason": "Insufficient balance",
+      "timestamp": "2025-11-27T08:17:03"
+    },
+    {
+      "transaction_id": "TXN-003",
+      "student_id": "STU1003",
+      "student_name": "Le Van C",
+      "amount_vnd": 18000000,
+      "status": "success",
+      "timestamp": "2025-11-27T08:20:45"
+    },
+    {
+      "transaction_id": "TXN-004",
+      "student_id": "STU1004",
+      "student_name": "Pham Thi D",
+      "amount_vnd": 15000000,
+      "status": "failed",
+      "failure_reason": "Payment gateway timeout",
+      "timestamp": "2025-11-27T08:22:10"
+    }
+  ]
+}
