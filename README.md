@@ -1,99 +1,89 @@
-# Report Microservice with LLM-based Summarization
+# 📊 Automated Report Generation & Summarization API
 
-## Overview
+![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=flat&logo=fastapi)
+![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
+![Google Gemini](https://img.shields.io/badge/LLM-Google%20Gemini-orange.svg)
 
-This project implements a **FastAPI-based microservice** that simulates a system report pipeline and uses a **Large Language Model (LLM)** to automatically summarize generated reports.
+## 🌟 Overview
+This project is a **FastAPI-based microservice** designed to simulate an automated system report pipeline. It goes beyond simple data generation by leveraging a **Large Language Model (Google Gemini)** to digest complex, structured system logs (JSON) and output accessible, human-readable summaries.
 
-The system follows these steps:
-1. Generate a daily report dataset in JSON format.
-2. Store the report locally.
-3. Read the generated dataset via an API endpoint.
-4. Use an LLM to generate a natural language summary of the report.
+### Why this project?
+In enterprise environments, systems generate vast arrays of JSON logs. This microservice demonstrates how to intercept structured data and automatically translate it into intuitive language for managers and stakeholders.
 
-This project demonstrates how LLMs can be integrated into backend services to convert **structured system data (JSON)** into **human-readable summaries**.
+### 🔄 The Pipeline
+1. **Generate**: Creates a fake daily report dataset in JSON format.
+2. **Store**: Persists the dataset locally.
+3. **Read**: Exposes the dataset via an API endpoint.
+4. **Summarize**: Prompts an LLM to generate a natural language summary.
 
 ---
 
-## Project Structure
-
+## 📂 Project Structure
 ```text
 Gemini_Based_Automated_Report_Generation_System/
-│── .venv/
+│── .venv/                 # Virtual Environment
 │── data/
-│   └── dataset.json
-│── main.py
-│── report_generator.py
-│── LLM.py
-│── requirements.txt
-│── README.md
+│   └── dataset.json       # Generated structured data
+│── main.py                # FastAPI Application Entry
+│── report_generator.py    # Mock Data Generator
+│── LLM.py                 # LLM Integration Logic
+│── requirements.txt       # Dependencies
+│── README.md              # You are here!
 ```
-
-## Requirements
-
-- Python 3.9+
-- Virtual environment (`.venv`)
-- Dependencies listed in `requirements.txt`
 
 ---
 
-## Setup Instructions
+## 🚀 Setup Instructions
 
-### 1. Create and activate virtual environment
+### 1. Environment Preparation
+Ensure you have **Python 3.9+** installed. Activate your virtual environment and install dependencies:
 
-**Windows**
-```bash
+**Windows PowerShell:**
+```powershell
 python -m venv .venv
 .\.venv\Scripts\activate
-```
-
-### 2. Install dependencies
-
-```bash
 pip install -r requirements.txt
 ```
 
-**Running the Application**
-
+### 2. Launch the Application
+Start the Uvicorn ASGI server:
 ```bash
 uvicorn main:app --reload
 ```
+- **API Base URL**: `http://127.0.0.1:8000`
+- **Interactive API Docs (Swagger UI)**: `http://127.0.0.1:8000/docs`
 
-API base URL: http://127.0.0.1:8000
+---
 
-Swagger UI: http://127.0.0.1:8000/docs
+## 🌐 API Workflow
 
-## API Workflow
-**Step 1: Generate report dataset**
+To use the service, follow this logical flow:
 
-```bash
+### Step 1: Generate Data
+*Must be called first to initialize `dataset.json`.*
+```http
 GET /report/generate
 ```
-Important: This endpoint must be called first to generate data (dataset.json).
 
-**Step 2: Read generated report**
-
-```bash
+### Step 2: Read Data (Optional)
+*View the raw, structured JSON report.*
+```http
 GET /report/read
 ```
 
-**Step 3: Summarize report using LLM**
-
-```bash
+### Step 3: Summarize ✨
+*Have the LLM analyze and summarize the report in plain English.*
+```http
 GET /report/summarize?mode=concise
 ```
+> **Parameters:**
+> - `mode` (query param): Choose either `concise` (default) or `detailed`.
 
-There are 2 modes: concise (default) and detailed.
-
-**Step 4: Health check**
-
-```bash
+### Step 4: Health Check
+*Verify the API is running correctly.*
+```http
 GET /health
 ```
 
-## Technologies Used
-
-- FastAPI
-- Uvicorn
-- Python
-- Large Language Models (LLM)
-- Google Gemini API
+---
+**Tech Stack:** FastAPI, Uvicorn, Python, Google Gemini API
